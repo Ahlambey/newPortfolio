@@ -1,0 +1,41 @@
+.experience-container{
+    min-height: 100vh;
+    margin: 0 10% 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exp-content{
+    width: 500px;
+}
+
+.exp-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+    color: #333;
+}
+
+@media screen and (max-width: 1150px) {
+    .experience-container{
+       /*  height: fit-content; */
+       /* min-height: 100vh; */
+        display: flex;
+        justify-content: center;
+    }
+    .exp-illustration{
+        display: none;
+    }
+    .exp-content{
+        margin: 10px;
+        
+    }
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1151px){
+    .experience-container{
+        height: max-content;
+        margin: 10px 5px 10px 0;
+       
+    }
+}

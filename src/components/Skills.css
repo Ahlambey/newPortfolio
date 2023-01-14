@@ -1,0 +1,30 @@
+.skills-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8f2ff;
+}
+
+.progress-bars {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1150px){
+
+    .skill-container{
+        /* height: fit-content; */
+        padding-bottom: 30px;
+        margin: 20px 0 20px 0;
+       
+    }
+
+    .progress-bars{
+       
+    }
+
+}

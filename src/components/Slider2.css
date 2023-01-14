@@ -1,0 +1,25 @@
+.slider2 {
+    max-width: 300px;
+    max-height: 500px;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;  
+    scroll-behavior: smooth;
+    background-color: #c5c1c0;
+
+  }
+
+  .slider2 > div {
+    scroll-snap-align: start;
+  }
+
+  .slider2 > div > img {
+    height: 500px;
+    width: 300px;
+  }
+  .slide {
+    max-width: 300px;
+    flex-shrink: 0;
+    height: 100%;
+  }

@@ -1,0 +1,75 @@
+.apps-container {
+  min-height: 100vh;
+  display: flex;
+   justify-content: center;
+  /*  align-items: center; */
+  flex-direction: column;
+  margin: 9%;
+}
+
+.first-row,
+.second-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/**************************
+    SQUENCE FADE IN ANIM
+***************************/
+/* FIRST ROW ANIM */
+.first-row div {
+  opacity: 0;
+}
+
+@keyframes squenceFadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.first-row.animate-apps div {
+  animation: squenceFadeIn 0.5s forwards;
+}
+
+.first-row.animate-apps div:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.first-row.animate-apps div:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.first-row.animate-apps div:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+/* SECOND ROW ANIM */
+
+.second-row div {
+  opacity: 0;
+}
+
+.second-row.animate-apps div {
+  animation: squenceFadeIn 0.5s forwards;
+}
+
+.second-row.animate-apps div:nth-child(1) {
+  animation-delay: 2s;
+}
+
+.second-row.animate-apps div:nth-child(2) {
+  animation-delay: 2.5s;
+}
+
+.second-row.animate-apps div:nth-child(3) {
+  animation-delay: 3s;
+}
+
+@media screen and (max-width: 1150px) {
+  .apps-container {
+    /* height: fit-content; */
+    margin: 0;
+    padding: 60px 0 60px 0;
+  }
+}

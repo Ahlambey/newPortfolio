@@ -1,0 +1,219 @@
+.contact-container {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, #6253e1, #852D91,  #ff8d58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.contact-from-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 50px;
+    z-index: 1;
+
+
+  /*   -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out; */
+}
+
+form input, form textarea {
+    border: none;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-weight: 500;
+    color: #666;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: #808080;
+    opacity: 1;
+}
+
+
+form h1 {
+    align-self: center;
+    background-color: #6253e1;
+    background-image: linear-gradient(to right, #6253e1, #852D91, #f55a6c, #ff8d58);
+    background-size: 150% 50%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+
+/****************
+    SEND BUTTON
+*****************/
+
+.form-contact-btn {
+    padding: 20px;
+    width: 150px;
+    margin-top: 10px;
+    align-self: center;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-size: 300% 100%;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #6253e1, #852D91, #f55a6c, #ff8d58);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+    cursor: pointer;
+}
+
+.form-contact-btn:hover {
+    background-position: 100% 0;
+}
+
+.form-contact-btn:disabled {
+    opacity: 0.5;
+}
+
+
+/*******************
+    FORM ANIMATION
+********************/
+.paper-plaine {
+    background-color: #fff;
+    width: 40%;
+    opacity: 0;
+}
+
+
+.success .paper-plaine
+{
+    width: 100%;
+    font-family: 'Hahmlet', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #8255da;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s linear forwards;
+}
+
+.success form
+{
+    width: 0%;
+    padding: 0;
+    display: block;
+    opacity: 0;
+    /* animation: fadeOut 0.5s linear forwards; */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/****************
+    ERROR 
+*****************/
+.error {
+    color: #ff0033;
+    margin-left: 25px;
+}
+
+
+/*****************
+    ERROR ALERT
+******************/
+
+.error-alert{
+    padding: 20px;
+    background-color: #f44336; 
+    border-radius: 7px;
+
+    color: white;
+    margin-bottom: 15px;
+    position: absolute;
+    z-index: 9999;
+    margin-top: -45%;
+    opacity: 0;
+}
+
+.show-error-alert {
+    animation: fadeIn 0.5s linear forwards;
+
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
+  /*copy mail popup*/
+
+  .popup .popuptext.alert-popup{
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  .popup .popuptext.alert-popup::after{
+    top: 100%;
+    left: 50%;
+  }
+
+
+  /* *****************
+    MOBILE DISPLAY
+  ********************/
+
+  @media screen  and (max-width: 1150px){
+    .contact-container{
+       /*  min-height: fit-content; */
+    }
+
+    .contact-from-container {
+        width: 95%;
+    }
+
+    .contact-me-illustration{
+        display: none;
+    }
+    .error-alert{
+        margin-top: -150%;
+    }
+  }
