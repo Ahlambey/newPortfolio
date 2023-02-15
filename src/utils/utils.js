@@ -1,5 +1,5 @@
 export const copyToClipboard = () => {
-  navigator.clipboard.writeText("juleahlam@gmail.com");
+  navigator.clipboard.writeText("ahlam.beyoud@gmail.com");
   //show the popup
   return true;
 };
