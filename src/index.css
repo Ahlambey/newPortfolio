@@ -36,3 +36,11 @@ html {
   color: #00392f;
 }
 
+/*loading*/
+
+.loading{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
