@@ -8,6 +8,16 @@ export default function Navbar({ currentElm }) {
   const [activeSidebar, setActiveSidebar] = useState(false);
   const [closeIcon, setCloseIcon] = useState(false);
 
+  const handleNavElemClick = (elm) => {
+    toggleSidebar();
+    if(window.gtag){
+      window.gtag('event', 'nav-click', {
+        'nav-element': elm
+      });
+    }
+    
+  }
+
   const toggleSidebar = () => {
     if (isMobile()) {
       setActiveSidebar(!activeSidebar);
@@ -37,7 +47,7 @@ export default function Navbar({ currentElm }) {
       </div>
       <div className={`${activeSidebar && "links-active"} links `}>
         <ul className="links-container">
-          <li onClick={toggleSidebar} className="link-item">
+          <li onClick={()=>handleNavElemClick('experience')} className="link-item">
             <a
               className={`${currentElm === "experience" && "active-element"}`}
               href="#experience"
@@ -45,7 +55,7 @@ export default function Navbar({ currentElm }) {
               Experience
             </a>
           </li>
-          <li onClick={toggleSidebar} className="link-item">
+          <li onClick={()=>handleNavElemClick('skills')} className="link-item">
             <a
               className={`${currentElm === "skills" && "active-element"}`}
               href="#skills"
@@ -53,7 +63,7 @@ export default function Navbar({ currentElm }) {
               Skills
             </a>
           </li>
-          <li onClick={toggleSidebar} className="link-item">
+          <li onClick={()=>handleNavElemClick('apps')} className="link-item">
             <a
               className={`${currentElm === "apps" && "active-element"}`}
               href="#apps"
@@ -61,7 +71,7 @@ export default function Navbar({ currentElm }) {
               Apps
             </a>{" "}
           </li>
-          <li onClick={toggleSidebar} className="link-item">
+          <li onClick={()=>handleNavElemClick('hobbies')} className="link-item">
             <a
               className={`${currentElm === "hobbies" && "active-element"}`}
               href="#hobbies"
@@ -69,7 +79,7 @@ export default function Navbar({ currentElm }) {
               About Me
             </a>
           </li>
-          <li onClick={toggleSidebar} className={navBackground ? "contact-btn active" : "contact-btn"}>
+          <li onClick={()=>handleNavElemClick('contact')} className={navBackground ? "contact-btn active" : "contact-btn"}>
             <a href="#contact">Contact Me</a>{" "}
           </li>
         </ul>

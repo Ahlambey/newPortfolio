@@ -113,11 +113,24 @@ export default function Contact() {
     setInputClicked({ ...inputClicked, [name]: name });
     
     setFromErrors(validateForm(values));
+
+    //GA to track user interaction w/ form
+    if(window.gtag){
+      console.log(name)
+      window.gtag('event', 'form-events', {
+        'form-field': name
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     sendData();
+
+    //GA track users who send mails
+    if(window.gtag){
+      window.gtag('event', 'message-sent');
+    }
   };
 
   const sendData = async () => {
@@ -139,6 +152,14 @@ export default function Contact() {
     } catch (error) {
       setIsloading(false);
       setFailure(true);
+
+      //GA track when errors happen
+      if(window.gtag){
+        window.gtag('event', 'form-exception', {
+          'description': error,
+          'fatal': false
+        });
+      }
     }
   };
 

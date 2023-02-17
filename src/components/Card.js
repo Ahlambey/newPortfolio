@@ -2,6 +2,18 @@ import React from "react";
 import "./Card.css";
 
 export default function Card({ cardContent }) {
+
+  //GA tracks clicks on Work example
+  const GAapps = (appName, platform) =>{
+    if(window.gtag){
+      window.gtag('event', 'apps-click', {
+        'app-name': appName,
+        'app-platform': platform,
+      });
+      
+    }
+  }
+
   return (
     <div className="card-container">
       <div className="card">
@@ -17,10 +29,10 @@ export default function Card({ cardContent }) {
           <div className="content">
             <p>{cardContent.cardText}</p>
             <div className="card-btns">
-              <a href={cardContent.liveDemo} target="_blank" rel="noreferrer">
+              <a onClick={()=>GAapps(cardContent.cardTitle, 'live-demo')} href={cardContent.liveDemo} target="_blank" rel="noreferrer">
                 Live Demo
               </a>
-              <a href={cardContent.gitHub} target="_blank" rel="noreferrer">
+              <a onClick={()=>GAapps(cardContent.cardTitle, 'git-repo')} href={cardContent.gitHub} target="_blank" rel="noreferrer">
                 Github Repo
               </a>
             </div>

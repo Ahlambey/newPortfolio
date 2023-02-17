@@ -6,6 +6,16 @@ import "./Hero.css";
 export default function Hero() {
   const [showPopup, setShowPopup] = useState(false);
 
+  //Google analytic screen view
+  useEffect(() => {
+    if(window.gtag){
+      window.gtag('event', 'screen_view', {
+        'app_name': 'new-portfolio',
+        'screen_name': 'Home'
+      });
+    }
+  }, []);
+  
   //Clears the popup after 2s.
   //The popup apprears after user clicks
   //on mail icon to copy email.
@@ -17,6 +27,27 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [showPopup]);
 
+
+  //Google analytics that tracks clicks on socials
+  const GAsocials = (socialName) => {
+
+    if(window.gtag){
+      window.gtag('event', 'socials', {
+        'social-elm': socialName
+      });
+      
+    }
+  }
+
+  //Google Analytics to track clicks on contact button
+
+  const GAcontactBtn = () =>{
+    if(window.gtag){
+      window.gtag('event', 'contact-btn-click');
+      
+    }
+  }
+
   return (
     <section className="hero-container">
       {/* <Navbar /> */}
@@ -26,6 +57,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/ahlam-beyoud-bb6a88204"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={()=>GAsocials('linkedin')}
           >
             <i className="lni lni-linkedin-original"></i>
           </a>
@@ -33,6 +65,7 @@ export default function Hero() {
             href="https://github.com/Ahlambey"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={()=>GAsocials('github')}
           >
             <i className="lni lni-github-original"></i>
           </a>
@@ -40,13 +73,16 @@ export default function Hero() {
             href="https://wa.me/+213657685961"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={()=>GAsocials('whatsApp')}
           >
             <i className="lni lni-whatsapp"></i>
           </a>
 
           <span
             className="popup"
-            onClick={() => setShowPopup(copyToClipboard())}
+            onClick={() => {
+              GAsocials('whatsApp')
+              setShowPopup(copyToClipboard())}}
           >
             <span className={`popuptext ${showPopup && "show"}`}>
               Email coppied!
@@ -66,7 +102,7 @@ export default function Hero() {
             skill, I am always motivated to keep learning and improving, so I am
             a lifelong learner.
           </p>
-          <a className="hero-contact-btn-link" href="#contact">
+          <a onClick={GAcontactBtn} className="hero-contact-btn-link" href="#contact">
             <button className="call-to-action">Contact Me</button>
           </a>
         </div>

@@ -14,6 +14,11 @@ export default function Hobbies() {
 
   const checkArt = () => {
     setShowArt(!showArt);
+
+    //GA track if visitors check the artwork
+    if(window.gtag){
+      window.gtag('event', 'check-art');
+    }  
   };
 
   return (
